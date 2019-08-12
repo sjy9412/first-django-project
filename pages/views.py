@@ -10,6 +10,7 @@ def index(request):
     # 3. 해당하는 템플릿 반환
     return render(request, 'index.html')
 
+    # 변수의 이름은 반드시 urls.py에서 지정해준 것과 같은 것으로 해줘야함
 def hello(request, name):
     context = {'name': name}
     return render(request, 'hello.html', context)
@@ -40,3 +41,13 @@ def dinner(request):
         'django_link': 'https://docs.djangoproject.com/en/2.2/ref/templates/language/'
         }
     return render(request, 'dinner.html', context)
+
+    # 기본적으로 template에서는 연산이 불가능함(라이브러리를 설치하면 가능)
+    # 따라서 연산은 view에서 해주는 것이 좋음
+def cube(request, number):
+    context = {'number': number, 'cube_number': number**3, 'numbers': [1,2,3], 'students': {'3': 3, '5': 6}}
+    return render(request, 'cube.html', context)
+
+def about(request, name, age):
+    context = {'name': name, 'age': age}
+    return render(request, 'about.html', context)
