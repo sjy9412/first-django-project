@@ -1,0 +1,24 @@
+{% block css %}
+<style>
+.size {
+  margin: 20px 5px 0;
+  width: 300px;
+  height: 50px;
+}
+.size2 {
+  width: 50px;
+  height: 50px;
+}
+</style>
+{% endblock %}
+{% block body %}
+<form action="/services/result/">
+  <input type="radio" name="font" value="rounded" checked>rounded
+  <input type="radio" name="font" value="acrobatic" >acrobatic
+  <input type="radio" name="font" value="alligator" >alligator
+  <input type="radio" name="font" value="short" >short
+  <input type="radio" name="font" value="type_set" >type_set<br>
+  <input class="size" type="text" name="text" placeholder="텍스트를 입력하세요.">
+  <input class="size2" type="submit" value="변경">
+</form>
+{% endblock %}
