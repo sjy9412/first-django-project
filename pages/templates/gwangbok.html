@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  h1 {
+    text-align: center;
+    font-size: 25vw;
+  }
+  p {
+    text-align: center;
+    font-size: 3vw;
+  }
+  </style>
+</head>
+<body>
+  {% if datetime_now == '0815' %}
+  <h1>예</h1>
+  {% else %}
+  <h1>아니요</h1>
+  {% endif %}
+  <!-- <h1>{{ result }}</h1> -->
+  <p>{% now 'm/d' %}</p>
+</body>
+</html>

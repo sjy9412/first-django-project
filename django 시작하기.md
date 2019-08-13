@@ -30,8 +30,22 @@ $ pip install django
 * 현재 활용하고 있는 버전은 다음과 같다.
   * python 3.7.4
   * django 2.2.4
+
+  ### 프로젝트 만드는 순서
   
+  1. 폴더 만들기 (mkdir __)
+  2. 가상환경 만들기 (python -m venv venv)
+     1. `.gitignore`에 venv/ 추가 (git에 올릴경우)
+  3. 가상환경 실행 (source venv/Scripts/activate)
+  4. 원하는 django 버전 설치 (pip install django)
+  5. 프로젝트 생성 (django-admin startproject __)
+  6. app 생성 및 등록
+  7. url 설정 (7 ~ 10 반복)
+  8. view.py 설정
+  9. templates 설정
+  10. 서버 실행
   
+
 
 ### 0. 가상환경 실행 + .gitignore
 
@@ -96,7 +110,7 @@ $ pip install django
 
 ```bash
 $ mkdir __프로젝트 이름/폴더 이름__
-$ cd __프로젝트 이름/폴도 이름__
+$ cd __프로젝트 이름/폴더 이름__
 ```
 
 ```bash
@@ -218,3 +232,52 @@ $ python manage.py runserver
 ```
 
 `localhost:8000`에서 확인 해보자!
+
+
+
+# Form 태그 사용
+
+```html
+<form action="/signup_result/" method="POST">    
+```
+* action : 요청 보내는 곳
+
+* method : 요청 보내는 방식
+
+  * GET : DB에서 어떠한 값을 꺼내오거나 단순 요청하는 경우
+
+    * URL에 querystring으로 요청이 보내짐
+      * python에서 `request.GET`하면 {'data': '안녕하세요'} 형태로 저장(QueryDict)
+    * ?username=tak&password=123
+
+  * POST : DB의 어떠한 값을 추가하거나 삭제하는 경우
+
+    * HTTP 요청의 body (url에 보이지 않음)
+
+    * django에서 POST 요청으로 form을 보내는 경우 보안상의 이유로 항상 csrf_tokem을 넣어줘야함
+
+      ```html
+      {% csrf_token %}
+      ```
+
+      
+
+# 정적 파일 관리
+
+* 정적 파일(static file) : img, css, js ..
+
+1. app으로 등록된 폴더 안에서 static폴더 생성
+
+2. 폴더를 불러옴
+
+	```html
+	{% load static %}
+	```
+	
+3. 사용하려는 파일을 불러옴
+
+   ```html
+   <link rel="stylesheet" href="{% static 'stylesheets/signup.css' %}">
+   ```
+
+   * {% 폴더명 '내부 폴더명/파일명' %}
