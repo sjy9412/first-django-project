@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 # 1. url 설정
-# pages app의 views.py 파일 불러오기
+# pages app(directory)의 views.py 파일 불러오기
 urlpatterns = [
     # 1. url 설정
     # path(url, 해당하는 views의 함수)

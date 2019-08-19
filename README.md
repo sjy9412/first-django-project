@@ -109,6 +109,26 @@ $ pip install django
 ### 1. Django 프로젝트 시작
 
 ```bash
+$ pip install django
+```
+
+* 처음 시작할 때 장고를 설치
+
+  * 참고
+
+    ```bash
+    $ pip freeze > requirements.txt
+    ```
+
+    * 사용하는 패키지를 저장하여 확인가능
+
+    ```bash
+    $ pip install -r requirments.txt
+    ```
+
+    * 다른 가상환경에서 requirments에 저장된 패키지들을 설치할 수 있음
+
+```bash
 $ mkdir __프로젝트 이름/폴더 이름__
 $ cd __프로젝트 이름/폴더 이름__
 ```
